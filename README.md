@@ -42,27 +42,3 @@ Este repositório documenta a implantação do **PortfolioHUB**, uma plataforma 
 │   └── main.js
 └── 📁 .github/
     └── workflows/
-```
-
-## 📽️ Apresentação
-
-[🔗 Link para o vídeo no YouTube (simulado)](https://youtube.com/portfoliohub-demo)
-
-## 👤 Autor
-
-- **Nome:** [Seu Nome Aqui]
-- **Curso:** Bootcamp I - 2025
-- **Professor:** Marcelo Carboni Gomes
-
----
-
-## 📥 Como Usar
-
-1. Clone o repositório:
-```bash
-git clone https://github.com/seu-usuario/portfoliohub-projeto.git
-```
-
-2. Acesse a pasta e visualize os arquivos ou edite conforme necessário.
-
-3. O projeto é colaborativo, então você pode abrir issues e sugestões!
