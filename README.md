@@ -25,7 +25,7 @@ Este repositório documenta a implantação do **PortfolioHUB**, uma plataforma 
 3. **Gestão de Usuários e Segurança**: Contas configuradas e monitoradas.
 4. **Integração com GitHub**: Repositório privado com boas práticas.
 5. **Testes e Validação**: Etapas validadas com checklist automatizado.
-6. **Apresentação Final**: Demonstração no YouTube (link aqui, se aplicável).
+6. **Apresentação Final**: Demonstração no YouTube.
 
 ## 📂 Estrutura do Repositório
 
