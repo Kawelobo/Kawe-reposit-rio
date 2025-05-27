@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main # Change to 'master', 'develop', etc., if your main branch has a different name
+  pull_request:
+    branches:
+      - main # Change to 'master', 'develop', etc.
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest # You can also use 'windows-latest' or 'macos-latest'
+
+    # This strategy section allows you to test your project with multiple versions of a language.
+    # Adjust this section based on your project's language (e.g., Python versions, Java versions).
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x] # Example for Node.js: Tests with Node.js 18 and 20.
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4 # Action to fetch your repository's code
+
+      - name: Setup environment (${{ matrix.node-version }})
+        # Replace 'actions/setup-node@v4' with the appropriate setup action for your language:
+        # For Python: uses: actions/setup-python@v5
+        # For Java:   uses: actions/setup-java@v4
+        # For Go:     uses: actions/setup-go@v5
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          # Caching dependencies can speed up workflow runs. Adjust 'npm' based on your package manager.
+          cache: 'npm' # Use 'yarn', 'pnpm' for Node.js, or omit for other languages (e.g., Python often caches via pip)
+
+      - name: Install dependencies
+        # This command installs your project's dependencies.
+        # Examples:
+        # - Node.js: npm ci (recommended), yarn install --frozen-lockfile, pnpm install
+        # - Python: pip install -r requirements.txt
+        # - Java (Maven): mvn clean install -DskipTests
+        # - Ruby: bundle install
+        run: npm ci
+
+      - name: Run tests
+        # This command executes your project's tests.
+        # Examples:
+        # - Node.js: npm test, jest
+        # - Python: pytest, python -m unittest discover
+        # - Java: mvn test, gradle test
+        # - Go: go test ./...
+        run: npm test
+
+      # - name: Build project (optional)
+      #   # Uncomment and adjust this step if your project requires a build process (e.g., compiling code, bundling assets).
+      #   # Examples:
+      #   # - Node.js: npm run build, webpack
+      #   # - Java: mvn package, gradle build
+      #   # - Go: go build ./...
+      #   run: npm run build
