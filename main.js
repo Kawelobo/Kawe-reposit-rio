@@ -1,27 +1,29 @@
-mkdir chatgpt-node
-cd chatgpt-node
-npm init -y
-npm install openai dotenv
-import { OpenAI } from 'openai';
-import dotenv from 'dotenv';
+const chatMessages = document.getElementById('chatMessages');
+const userInput = document.getElementById('userInput');
 
-dotenv.config();
-
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
+userInput.addEventListener('keyup', function(event) {
+    if (event.key === 'Enter') {
+        sendMessage();
+    }
 });
 
-async function getChatGptResponse() {
-  const response = await openai.chat.completions.create({
-    model: 'gpt-4',
-    messages: [
-      { role: 'system', content: 'Você é um assistente útil.' },
-      { role: 'user', content: 'Qual é a capital do Brasil?' },
-    ],
-  });
+async function sendMessage() {
+    const input = userInput.value.trim();
+    if (input) {
+        appendMessage(input, 'user-message');
+        userInput.value = '';
 
-  console.log('Resposta do ChatGPT:', response.choices[0].message.content);
+        // Simulação de resposta do ChatGPT
+        setTimeout(() => {
+            appendMessage('Esta é uma resposta simulada do ChatGPT.', 'bot-message');
+        }, 1000);
+    }
 }
 
-getChatGptResponse().catch(console.error);
-node main.js
+function appendMessage(message, className) {
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('message', className);
+    messageElement.textContent = message;
+    chatMessages.appendChild(messageElement);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
