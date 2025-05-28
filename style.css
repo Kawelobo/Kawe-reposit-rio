@@ -1,0 +1,39 @@
+/* Reset básico para todos os elementos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilização básica do corpo do documento */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* Estilização do cabeçalho da página */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+}
+
+/* Estilização dos links */
+a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+git add style.css
+git commit -m "Adiciona arquivo style.css com estilos básicos"
+git push
+<link rel="stylesheet" href="style.css">
+https://github.com/usuario/repositorio/blob/main/style.css
+https://raw.githubusercontent.com/usuario/repositorio/main/style.css
